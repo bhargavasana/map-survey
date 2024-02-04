@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Survey</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style> #map { height: 400px; } </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); // Default position
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        fetch('<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Survey</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style> #map { height: 400px; } </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); // Default position
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        fetch('https://transit-survey.onrender.com/coordinates')
+        .then(response => response.json())
+        .then(data => {
+                // Assuming data is an array with only one object
+                var record = data[0];
+                var [originLat, originLng] = record.origin_latlng.split(',');
+                var [destLat, destLng] = record.destination_latlng.split(',');
+                L.polyline([[originLat, originLng], [destLat, destLng]], {color: 'red'}).addTo(map);
+                map.fitBounds(L.polyline([[originLat, originLng], [destLat, destLng]]).getBounds());
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
+')
+        .then(response => response.json())
+        .then(data => {
+                // Assuming data is an array with only one object
+                var record = data[0];
+                var [originLat, originLng] = record.origin_latlng.split(',');
+                var [destLat, destLng] = record.destination_latlng.split(',');
+                L.polyline([[originLat, originLng], [destLat, destLng]], {color: 'red'}).addTo(map);
+                map.fitBounds(L.polyline([[originLat, originLng], [destLat, destLng]]).getBounds());
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
